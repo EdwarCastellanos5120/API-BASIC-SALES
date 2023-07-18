@@ -8,7 +8,7 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 @Table(name = "tb_proveedores")
 @EntityListeners(AuditingEntityListener.class)
 @Data
-public class Proved {
+public class Provider {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -24,10 +24,10 @@ public class Proved {
     @Column(name = "Proveedor_Direccion")
     private String address;
 
-    public Proved() {
+    public Provider() {
     }
 
-    public Proved(Long id, String nit, String name, String address) {
+    public Provider(Long id, String nit, String name, String address) {
         this.id = id;
         this.nit = nit;
         this.name = name;
