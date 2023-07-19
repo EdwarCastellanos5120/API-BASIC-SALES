@@ -27,8 +27,10 @@ public class Customer {
 
     @Column(name = "Cliente_Apellido1")
     private String lastName1;
+
     @Column(name = "Cliente_Apellido2")
     private String lastName2;
+
     @Column(name = "Cliente_Apellido3")
     private String lastName3;
 

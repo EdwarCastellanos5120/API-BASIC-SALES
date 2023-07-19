@@ -27,7 +27,7 @@ public class ProviderController {
     }
 
     @PutMapping("/update/{id}")
-    public Provider create(@PathVariable Long id, @RequestBody Provider provider) {
+    public Provider update(@PathVariable Long id, @RequestBody Provider provider) {
         provider.setId(id);
         return provedService.updateProvider(provider);
     }

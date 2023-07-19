@@ -8,4 +8,9 @@ public interface ICustomerService {
 
     List<Customer> listcustomer();
 
+    Customer createdCustomer(Customer customer);
+
+    Customer updateCustomer(Customer customer);
+
+    void deleteCustomer(Long id);
 }
