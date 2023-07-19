@@ -46,11 +46,11 @@ public class ProviderServiceImpl implements IProviderService {
 
     @Override
     public Provider searchProviderByName(String name) {
-        return  provedRepository.findByName(name);
+        return provedRepository.findByName(name);
     }
 
     @Override
     public Provider searchProviderByAddress(String address) {
-        return  provedRepository.findByAddress(address);
+        return provedRepository.findByAddress(address);
     }
 }
