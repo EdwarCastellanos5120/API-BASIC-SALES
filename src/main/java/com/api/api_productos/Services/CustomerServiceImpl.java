@@ -5,6 +5,8 @@ import com.api.api_productos.Repository.ICustomerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -42,5 +44,21 @@ public class CustomerServiceImpl implements ICustomerService {
     @Override
     public Customer searchCustomerfindByDPI(String dpi) {
         return customerRepository.findByDpi(dpi);
+    }
+
+    @Override
+    public List<Customer> searchCustomerKeyword(String keyword) {
+        List<Customer> allResults = new ArrayList<>();
+        allResults.addAll(customerRepository.findByName1(keyword));
+        allResults.addAll(customerRepository.findByName2(keyword));
+        allResults.addAll(customerRepository.findByLastName1(keyword));
+        allResults.addAll(customerRepository.findByLastName2(keyword));
+        allResults.addAll(customerRepository.findByLastName3(keyword));
+        return allResults;
+    }
+
+    @Override
+    public List<Customer> searchCustomerBirthDate(Date birthDate) {
+        return  customerRepository.findByBirthDate(birthDate);
     }
 }

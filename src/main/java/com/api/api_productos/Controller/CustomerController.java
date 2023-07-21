@@ -3,7 +3,10 @@ package com.api.api_productos.Controller;
 import com.api.api_productos.Models.Customer;
 import com.api.api_productos.Services.ICustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -44,6 +47,14 @@ public class CustomerController {
     @GetMapping("/search/byDpi/{dpi}")
     public Customer searchByDpi(@PathVariable("dpi") String dpi) {
         return customerService.searchCustomerfindByDPI(dpi);
+    }
+    @GetMapping("/search/byKeyword/{keyword}")
+    public List<Customer> searchByKeyword(@PathVariable("keyword") String keyword) {
+        return customerService.searchCustomerKeyword(keyword);
+    }
+    @GetMapping("/search/byBirthDate/{birthDate}")
+    public List<Customer> searchBybirthDate(@PathVariable("birthDate") @DateTimeFormat(pattern = "yyyy-MM-dd") Date birthDate) {
+        return customerService.searchCustomerBirthDate(birthDate);
     }
 
 }

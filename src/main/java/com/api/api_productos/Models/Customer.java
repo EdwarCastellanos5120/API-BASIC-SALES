@@ -1,6 +1,7 @@
 package com.api.api_productos.Models;
 
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
 import lombok.Data;
 import org.springframework.data.annotation.CreatedDate;
@@ -42,6 +43,7 @@ public class Customer {
 
     @Column(name = "Cliente_Fecha")
     @CreatedDate
+    @JsonFormat(pattern = "yyyy-MM-dd")
     private Date birthDate;
 
     public Customer() {
