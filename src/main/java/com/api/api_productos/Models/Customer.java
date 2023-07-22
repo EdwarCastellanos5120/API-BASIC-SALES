@@ -6,6 +6,8 @@ import jakarta.persistence.*;
 import lombok.Data;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
+import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.Date;
 
@@ -44,6 +46,7 @@ public class Customer {
     @Column(name = "Cliente_Fecha")
     @CreatedDate
     @JsonFormat(pattern = "yyyy-MM-dd")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date birthDate;
 
     public Customer() {

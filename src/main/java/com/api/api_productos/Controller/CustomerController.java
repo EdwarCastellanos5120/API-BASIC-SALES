@@ -6,8 +6,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.*;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeFormatterBuilder;
+import java.time.temporal.ChronoField;
 import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 import java.util.Optional;
 
 
@@ -48,13 +54,16 @@ public class CustomerController {
     public Customer searchByDpi(@PathVariable("dpi") String dpi) {
         return customerService.searchCustomerfindByDPI(dpi);
     }
+
     @GetMapping("/search/byKeyword/{keyword}")
     public List<Customer> searchByKeyword(@PathVariable("keyword") String keyword) {
         return customerService.searchCustomerKeyword(keyword);
     }
+
+    //
     @GetMapping("/search/byBirthDate/{birthDate}")
     public List<Customer> searchBybirthDate(@PathVariable("birthDate") @DateTimeFormat(pattern = "yyyy-MM-dd") Date birthDate) {
-        return customerService.searchCustomerBirthDate(birthDate);
+    return customerService.searchCustomerBirthDate(birthDate);
     }
-
 }
+

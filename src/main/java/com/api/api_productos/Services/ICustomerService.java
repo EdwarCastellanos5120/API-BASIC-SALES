@@ -2,6 +2,7 @@ package com.api.api_productos.Services;
 
 import com.api.api_productos.Models.Customer;
 import org.springframework.data.repository.query.Param;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.util.Date;
 import java.util.List;
@@ -23,5 +24,5 @@ public interface ICustomerService {
 
     List<Customer> searchCustomerKeyword(String keyword);
 
-    List<Customer> searchCustomerBirthDate(Date birthDate);
+    List<Customer> searchCustomerBirthDate(@DateTimeFormat(pattern = "yyyy-MM-dd") Date birthDate);
 }

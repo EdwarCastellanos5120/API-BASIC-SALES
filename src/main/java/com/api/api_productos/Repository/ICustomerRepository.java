@@ -2,6 +2,7 @@ package com.api.api_productos.Repository;
 
 import com.api.api_productos.Models.Customer;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
@@ -22,6 +23,7 @@ public interface ICustomerRepository extends JpaRepository<Customer, Long> {
 
     List<Customer> findByLastName3(@Param("LastName3") String LastName3);
 
+    //@Query(value = "SELECT * FROM tb_clientes WHERE Cliente_Fecha = :birthDate", nativeQuery = true)
     List<Customer> findByBirthDate(@Param("birthDate") Date birthDate);
 }
 

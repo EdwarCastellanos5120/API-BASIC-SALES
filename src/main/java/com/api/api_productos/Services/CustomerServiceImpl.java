@@ -3,6 +3,7 @@ package com.api.api_productos.Services;
 import com.api.api_productos.Models.Customer;
 import com.api.api_productos.Repository.ICustomerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -58,7 +59,7 @@ public class CustomerServiceImpl implements ICustomerService {
     }
 
     @Override
-    public List<Customer> searchCustomerBirthDate(Date birthDate) {
+    public List<Customer> searchCustomerBirthDate(@DateTimeFormat(pattern = "yyyy-MM-dd") Date birthDate) {
         return  customerRepository.findByBirthDate(birthDate);
     }
 }
