@@ -3,17 +3,12 @@ package com.api.api_productos.Controller;
 import com.api.api_productos.Models.Customer;
 import com.api.api_productos.Services.ICustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.*;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.time.format.DateTimeFormatter;
-import java.time.format.DateTimeFormatterBuilder;
-import java.time.temporal.ChronoField;
 import java.util.Date;
 import java.util.List;
-import java.util.Locale;
 import java.util.Optional;
 
 
@@ -59,10 +54,11 @@ public class CustomerController {
         return customerService.searchCustomerKeyword(keyword);
     }
 
-    //
     @GetMapping("/search/byBirthDate/{birthDate}")
-    public List<Customer> searchBybirthDate(@PathVariable("birthDate") @DateTimeFormat(pattern = "yyyy-MM-dd") Date birthDate) {
-    return customerService.searchCustomerBirthDate(birthDate);
+    public List<Customer> searchByBirthDate(@PathVariable("birthDate") String birthDate) throws ParseException {
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+        Date date = formatter.parse(birthDate);
+        return customerService.findByBirthDate(date);
     }
 }
 

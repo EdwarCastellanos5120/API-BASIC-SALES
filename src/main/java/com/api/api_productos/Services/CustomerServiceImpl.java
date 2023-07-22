@@ -58,8 +58,9 @@ public class CustomerServiceImpl implements ICustomerService {
         return allResults;
     }
 
+    //Metodo para buscar a los clientes por fecha de nacimiento
     @Override
-    public List<Customer> searchCustomerBirthDate(@DateTimeFormat(pattern = "yyyy-MM-dd") Date birthDate) {
-        return  customerRepository.findByBirthDate(birthDate);
+    public List<Customer> findByBirthDate(@DateTimeFormat(pattern = "yyyy-MM-dd") Date birthDate) {
+        return customerRepository.findByBirthDate(birthDate);
     }
 }

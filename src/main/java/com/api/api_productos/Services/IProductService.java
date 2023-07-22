@@ -13,4 +13,20 @@ public interface IProductService {
     Product updateProduct(Product product);
 
     void deleteProduct(Long id);
+
+    Product searchProductById(Long id);
+
+    Product searchProductByName(String name);
+
+    List<Product> searchProductByPrice(float price);
+
+    List<Product> searchProductByQuantityGreaterThan(int quantity);
+
+    List<Product> searchProductByProviderId(Long id);
+    List<Product> searchProductByNameAndPrice(String name, float price);
+
+    List<Product> searchProductByProviderName(String name);
+
+    Product searchProductByProviderNit(String nit);
+
 }

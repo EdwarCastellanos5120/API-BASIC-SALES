@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+
 @Service
 public class ProductServiceImpl implements  IProductService{
 
@@ -69,4 +70,45 @@ public class ProductServiceImpl implements  IProductService{
     public void deleteProduct(Long id) {
          productRepository.deleteById(id);
     }
+
+    @Override
+    public Product searchProductById(Long id) {
+        return productRepository.findById(id).orElse(null);
+    }
+
+    @Override
+    public Product searchProductByName(String name) {
+        return productRepository.findByName(name);
+    }
+
+    @Override
+    public List<Product> searchProductByPrice(float price) {
+        return productRepository.findByPrice(price);
+    }
+
+    @Override
+    public List<Product> searchProductByQuantityGreaterThan(int quantity) {
+        return productRepository.findByQuantityGreaterThan(quantity);
+    }
+
+    @Override
+    public List<Product> searchProductByProviderId(Long id) {
+        return productRepository.findByProviderId(id);
+    }
+
+    @Override
+    public List<Product> searchProductByNameAndPrice(String name, float price) {
+        return productRepository.findByNameAndPrice(name, price);
+    }
+
+    @Override
+    public List<Product> searchProductByProviderName(String name) {
+        return  productRepository.findByProviderName(name);
+    }
+
+    @Override
+    public Product searchProductByProviderNit(String nit) {
+        return productRepository.findByProviderNit(nit);
+    }
+
 }

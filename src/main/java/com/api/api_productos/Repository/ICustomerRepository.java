@@ -23,7 +23,8 @@ public interface ICustomerRepository extends JpaRepository<Customer, Long> {
 
     List<Customer> findByLastName3(@Param("LastName3") String LastName3);
 
-    //@Query(value = "SELECT * FROM tb_clientes WHERE Cliente_Fecha = :birthDate", nativeQuery = true)
+    //Metodo para buscar a los clientes por fecha de nacimiento
+    @Query(value = "SELECT * FROM tb_clientes WHERE Cliente_Fecha = :birthDate", nativeQuery = true)
     List<Customer> findByBirthDate(@Param("birthDate") Date birthDate);
 }
 

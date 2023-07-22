@@ -24,5 +24,7 @@ public interface ICustomerService {
 
     List<Customer> searchCustomerKeyword(String keyword);
 
-    List<Customer> searchCustomerBirthDate(@DateTimeFormat(pattern = "yyyy-MM-dd") Date birthDate);
+    //Metodo para buscar a los clientes por fecha de nacimiento
+    List<Customer> findByBirthDate(@Param("birthDate") Date birthDate);
+
 }
