@@ -2,6 +2,7 @@ package com.api.api_productos.Services;
 
 import com.api.api_productos.Models.Sales;
 import com.api.api_productos.Repository.ISalesRepository;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -45,7 +46,13 @@ public class SalesServiceImpl implements ISalesService {
     }
 
     @Override
+    @Transactional
     public void deleteByReference(String reference) {
         salesRepository.deleteByReference(reference);
+    }
+
+    @Override
+    public Sales findByReference(String reference) {
+        return salesRepository.findByReference(reference);
     }
 }

@@ -9,4 +9,7 @@ import org.springframework.stereotype.Repository;
 public interface ISalesRepository  extends JpaRepository<Sales, Long> {
 
     void deleteByReference(@Param("reference") String reference);
+
+    //Metodo para buscar por referencia
+    Sales findByReference(@Param("reference") String reference);
 }

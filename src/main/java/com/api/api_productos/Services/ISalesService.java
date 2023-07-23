@@ -13,4 +13,7 @@ public interface ISalesService {
     void deleteSales(Long id);
 
     void deleteByReference(String reference);
+
+    Sales findByReference(String reference);
+
 }

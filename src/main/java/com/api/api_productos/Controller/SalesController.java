@@ -1,6 +1,5 @@
 package com.api.api_productos.Controller;
 
-import com.api.api_productos.Models.Customer;
 import com.api.api_productos.Models.Sales;
 import com.api.api_productos.Services.ISalesService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,5 +32,10 @@ public class SalesController {
     @DeleteMapping("/deleteByReference/{reference}")
     public void deleteByReference(@PathVariable("reference") String reference) {
         salesService.deleteByReference(reference);
+    }
+
+    @GetMapping("/findByReference/{reference}")
+    public Sales findByReference(@PathVariable("reference") String reference) {
+        return salesService.findByReference(reference);
     }
 }
