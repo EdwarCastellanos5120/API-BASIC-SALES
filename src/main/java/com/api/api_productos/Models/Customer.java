@@ -17,6 +17,8 @@ import java.util.Date;
 @Table(name = "tb_clientes")
 public class Customer {
 
+    //Comentario
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "Cliente_Codigo")
