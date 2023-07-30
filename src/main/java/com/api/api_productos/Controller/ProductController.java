@@ -3,6 +3,7 @@ package com.api.api_productos.Controller;
 import com.api.api_productos.Models.Customer;
 import com.api.api_productos.Models.Product;
 import com.api.api_productos.Services.IProductService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -10,6 +11,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/product")
+@RequiredArgsConstructor
 public class ProductController {
 
     @Autowired

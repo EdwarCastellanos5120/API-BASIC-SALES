@@ -2,6 +2,7 @@ package com.api.api_productos.Controller;
 
 import com.api.api_productos.Models.Sales;
 import com.api.api_productos.Services.ISalesService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -9,6 +10,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/sales")
+@RequiredArgsConstructor
 public class SalesController {
 
     @Autowired
